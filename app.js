@@ -10,12 +10,14 @@ var investments = require(__dirname + '/routes/investments');
 var about = require(__dirname + '/routes/about');
 var http = require('http');
 var path = require('path');
+var mongoose = require('mongoose');
 var app = express();
 
 /**
  * Other Variables
  */
  var oneDay = 86400000;
+ var db = mongoose.createConnection('localhost', 'rhc');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
