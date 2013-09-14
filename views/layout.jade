@@ -9,10 +9,10 @@ html
 	body(screen_capture_injected="true")
 		include includes/toolbar.jade
 		block special
-		div.content
-			block content
-				p default content
-			block blog
+		block bottomPanel
+			div.content
+				block content
+		block blog
 
 	include includes/footer.jade
 

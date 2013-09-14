@@ -12,13 +12,13 @@ exports.index = function(req, res){
   		title: "Post 2",
   		date: "01/03/2010",
   		body: "This is some post content",
-  		visible: true
+  		visible: false
   	},
   	{
   		title: "Post 3",
   		date: "01/05/2010",
   		body: "This is some post content",
-  		visible: false
+  		visible: true
   	}] 
   });
 };
