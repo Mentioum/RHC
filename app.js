@@ -8,12 +8,13 @@ var stylus = require('stylus');
 var routes = require(__dirname + '/routes');
 var investments = require(__dirname + '/routes/investments');
 var about = require(__dirname + '/routes/about');
+var blog = require(__dirname + '/routes/blog');
 var http = require('http');
 var path = require('path');
-var app = express();
-
 var mongoose = require('mongoose');
 var db = mongoose.createConnection('localhost', 'rhc');
+var app = express();
+
 
 /**
  * Other Variables
@@ -45,6 +46,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/investments', express.static(__dirname + '/public'));
 app.use('/about', express.static(__dirname + '/public'));
 app.use('/team', express.static(__dirname + '/public'));
+app.use('/blog', express.static(__dirname + '/public'));
 
 
 app.use(express.responseTime());
@@ -69,6 +71,8 @@ app.get('/about/investment-themes', about.investmentThemes);
 app.get('/about/expertise', about.expertise);
 app.get('/about/record', about.record);
 
+//Blog
+app.get('/blog', blog.index);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
