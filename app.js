@@ -15,6 +15,14 @@ var mongoose = require('mongoose');
 var db = mongoose.createConnection('localhost', 'rhc');
 var app = express();
 
+/**
+ * Schemas
+ */
+
+var PostSchema = require(__dirname + '/models/post').PostSchema;
+var Post = db.model('posts', PostSchema);
+
+
 
 /**
  * Other Variables
@@ -72,7 +80,8 @@ app.get('/about/expertise', about.expertise);
 app.get('/about/record', about.record);
 
 //Blog
-app.get('/blog', blog.index);
+app.get('/blog', blog.index(Post));
+app.post('/blog/post.json', blog.addPost(Post));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

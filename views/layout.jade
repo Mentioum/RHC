@@ -1,10 +1,11 @@
 !!!
-html
+html(ng-app)
 	head
-		link(rel='stylesheet', href='stylesheets/normalize.css')
-		link(rel='stylesheet', href='stylesheets/foundation.css')
-		link(rel='stylesheet', href='stylesheets/style.css')
-		script(src='javascripts/vendor/custom.modernizr.js')
+		block head
+			link(rel='stylesheet', href='stylesheets/normalize.css')
+			link(rel='stylesheet', href='stylesheets/foundation.css')
+			link(rel='stylesheet', href='stylesheets/style.css')
+			script(src='javascripts/vendor/custom.modernizr.js')
 	title title
 	body(screen_capture_injected="true")
 		include includes/toolbar.jade
@@ -37,6 +38,7 @@ html
 	script(src="javascripts/foundation/foundation.tooltips.js")
 	script(src="javascripts/foundation/foundation.topbar.js")
 	script(src="javascripts/foundation/foundation.interchange.js")
+	script(src="vendor/angular/angular.js")
 	script $(document).foundation();
 
 
